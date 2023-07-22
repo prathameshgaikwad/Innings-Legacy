@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Box Cricket Score Keeping App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="match-name">
+        <span id="team-name-1" class="team-name">CSK</span>
+        <span id="vs">vs</span>
+        <span id="team-name-2" class="team-name">RCB</span>
+      </h1>
+      <div id="main-area">
+        <p class="details" id="toss-details">
+          <span id="toss-winner">CSK</span> won the toss and chose to
+          <span id="toss-choice">bat</span>
+        </p>
+        <div id="scorecard">
+          <div id="score-plus-overs">
+            <p id="score" class="top">
+              <span class="runs">90</span>/<span class="wickets">1</span>
+            </p>
+            <p id="overs" class="bottom">
+              <span id="current-over">3.5</span>/<span id="total-overs">5</span>
+              Overs
+            </p>
+          </div>
+          <div id="team-plus-runrate">
+            <p id="team-name" class="top">CSK</p>
+            <p class="bottom">CRR: <span id="current-runrate">9.05</span></p>
+          </div>
+        </div>
+        <p class="details" id="extras-details">
+          Extras:
+          <span id="extras-total">12</span>
+          <span id="extras-count"
+            >( B <span id="bye-count">0</span>, LB
+            <span id="leg-bye-count">0</span>, WD
+            <span id="wide-count">0</span>, NB
+            <span id="no-ball-count">0</span>)
+          </span>
+        </p>
+      </div>
+      <p id="opponent-score">
+        <span id="opponent-team-name">RCB</span> -
+        <span class="runs">124</span>/<span class="wickets">4</span>
+      </p>
+      <div id="bowling-details-container">
+        <ul id="bowling-details"></ul>
+      </div>
+      <div id="buttons-container">
+        <button id="btn-0-runs" class="score-button">0</button>
+        <button id="btn-1-runs" class="score-button">1</button>
+        <button id="btn-2-runs" class="score-button">2</button>
+        <button id="btn-3-runs" class="score-button">3</button>
+        <button id="btn-4-runs" class="score-button">4</button>
+        <button id="btn-6-runs" class="score-button">6</button>
+        <button id="btn-wide" class="score-button">WD</button>
+        <button id="btn-no-ball" class="score-button">NB</button>
+        <button id="btn-bye" class="score-button">B</button>
+        <button id="btn-wicket" class="score-button">WICKET</button>
+        <button id="btn-leg-bye" class="score-button">LB</button>
+        <button id="btn-undo" class="score-button">UNDO</button>
+      </div>
+    </div>
+  </body>
+</html>
