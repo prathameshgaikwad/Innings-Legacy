@@ -28,13 +28,12 @@ body {
 #container {
   width: 100%;
   max-width: 538px;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(150deg, #f86161, #e92f2f);
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
-  border-radius: 20px;
   box-shadow: 0 0 40px 30px rgba(0, 0, 0, 0.14);
 }
 
