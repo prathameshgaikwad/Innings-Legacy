@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+  user-select: none;
 }
 
 *,
@@ -25,8 +26,9 @@ body {
 /* ------------------------------- CONTAINER -------------------------------------*/
 
 #container {
-  width: 320px;
-  height: 680px;
+  width: 100%;
+  max-width: 538px;
+  height: 100%;
   background: linear-gradient(150deg, #f86161, #e92f2f);
   display: flex;
   flex-direction: column;
@@ -123,21 +125,55 @@ body {
     rgba(255, 255, 255, 0.33),
     rgba(255, 255, 255, 0)
   );
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+#bowling-details {
+  width: 200%;
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#bowling-details li {
+  color: #666;
+  border: 3px solid #fff;
+  background-color: #eaebec;
+  border-radius: 50%;
+  margin: 0 5px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.35em;
+  height: 2.35em;
+  font-weight: 600;
 }
 
 /* ------------------------ BUTTONS CONTAINER ---------------------------------------------- */
 
-#buttons-container {
-  width: 320px;
-  height: fit-content;
+#buttons-background {
+  width: 100%;
+  height: auto;
   background-color: white;
+  border-radius: 35px 35px 20px 20px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.07);
+  display: flex;
+}
+
+#buttons-container {
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
   padding: 20px 0;
-  border-radius: 35px 35px 20px 20px;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.07);
 }
 
 .score-button {
@@ -145,11 +181,11 @@ body {
   color: #242424;
   width: 85px;
   height: 40px;
-  border: none;
   border-radius: 20px;
   font-weight: bold;
   font-size: 0.93rem;
   border: 1px solid lightgrey;
+  flex-grow: 1;
 }
 
 #btn-wicket {
