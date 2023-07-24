@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div id="container">
@@ -27,21 +28,21 @@
         <div id="scorecard">
           <div id="score-plus-overs">
             <p id="score" class="top">
-              <span class="runs">90</span>/<span class="wickets">1</span>
+              <span id="runs">0</span>/<span id="wickets">0</span>
             </p>
             <p id="overs" class="bottom">
-              <span id="current-over">3.5</span>/<span id="total-overs">5</span>
+              <span id="current-over">0.0</span>/<span id="total-overs">0</span>
               Overs
             </p>
           </div>
           <div id="team-plus-runrate">
             <p id="team-name" class="top">CSK</p>
-            <p class="bottom">CRR: <span id="current-runrate">9.05</span></p>
+            <p class="bottom">CRR: <span id="current-runrate">0.00</span></p>
           </div>
         </div>
         <p class="details" id="extras-details">
           Extras:
-          <span id="extras-total">12</span>
+          <span id="extras-total">0</span>
           <span id="extras-count"
             >( B <span id="bye-count">0</span>, LB
             <span id="leg-bye-count">0</span>, WD
@@ -59,19 +60,27 @@
       </div>
       <div id="buttons-background">
         <div id="buttons-container">
-          <button id="btn-0-runs" class="score-button">0</button>
-          <button id="btn-1-runs" class="score-button">1</button>
-          <button id="btn-2-runs" class="score-button">2</button>
-          <button id="btn-3-runs" class="score-button">3</button>
-          <button id="btn-4-runs" class="score-button">4</button>
-          <button id="btn-6-runs" class="score-button">6</button>
-          <button id="btn-wide" class="score-button">WD</button>
-          <button id="btn-no-ball" class="score-button">NB</button>
-          <button id="btn-bye" class="score-button">B</button>
-          <button id="btn-wicket" class="score-button">WICKET</button>
-          <button id="btn-leg-bye" class="score-button">LB</button>
-          <button id="btn-undo" class="score-button">UNDO</button>
-          <button id="btn-custom" class="score-button">CUSTOM</button>
+          <button id="btn-0-runs" class="button">0</button>
+          <button id="btn-1-runs" class="button">1</button>
+          <button id="btn-2-runs" class="button">2</button>
+          <button id="btn-3-runs" class="button">3</button>
+          <button id="btn-4-runs" class="button">4</button>
+          <button id="btn-6-runs" class="button">6</button>
+          <button id="btn-wide" class="button">WD</button>
+          <button id="btn-no-ball" class="button">NB</button>
+          <button id="btn-bye" class="button">B</button>
+          <button id="btn-wicket" class="button exclude-hover">WICKET</button>
+          <button id="btn-leg-bye" class="button">LB</button>
+          <button id="btn-undo" class="button exclude-hover">UNDO</button>
+          <button id="btn-custom" class="button">CUSTOM</button>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Enter runs:</p>
+              <input type="number" id="inputField" />
+              <button id="btn-submit">SUBMIT</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

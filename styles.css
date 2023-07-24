@@ -23,11 +23,12 @@ body {
   margin: 0;
 }
 
-/* ------------------------------- CONTAINER -------------------------------------*/
+/* --------------------------------------------- CONTAINER ----------------------------------------------*/
 
 #container {
   width: 100%;
   max-width: 538px;
+  min-width: 320px;
   height: 100vh;
   background: linear-gradient(150deg, #f86161, #e92f2f);
   display: flex;
@@ -130,7 +131,7 @@ body {
 }
 
 #bowling-details {
-  width: 200%;
+  width: 100%;
   height: 100%;
   list-style-type: none;
   display: flex;
@@ -160,7 +161,7 @@ body {
   width: 100%;
   height: auto;
   background-color: white;
-  border-radius: 35px 35px 20px 20px;
+  border-radius: 35px 35px 0 0;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.07);
   display: flex;
 }
@@ -175,7 +176,7 @@ body {
   padding: 20px 0;
 }
 
-.score-button {
+.button {
   background-color: #eaebec;
   color: #242424;
   width: 85px;
@@ -187,12 +188,71 @@ body {
   flex-grow: 1;
 }
 
+.button:not(.exclude-hover):hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+  border: 2px solid #bfbfbf;
+}
+
 #btn-wicket {
   background-color: #e92f2f;
   color: white;
 }
 
+#btn-wicket:hover,
+#btn-undo:hover {
+  cursor: pointer;
+}
+
 #btn-undo {
   background-color: black;
   color: white;
+}
+
+/* ---------------------------- myModal------------------------ */
+
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #f2f2f2;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+#inputField {
+  font-size: 1rem;
+  margin: 8% 0;
+  padding: 2%;
+}
+
+#btn-submit {
+  padding: 3%;
+  width: 90%;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+#btn-submit:hover {
+  background-color: #242424;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
 }
