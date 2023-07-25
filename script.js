@@ -1,6 +1,15 @@
 const runsEl = document.querySelector("#runs");
 const wicketsEl = document.querySelector("#wickets");
-const over = document.querySelector("#current-over");
+const overEl = document.querySelector("#current-over");
+const ballEl = document.querySelector("#current-ball");
+const currentRunRateEl = document.querySelector("#current-runrate");
+const extrasTotalEl = document.querySelector("#extras-total");
+const wideCountEl = document.querySelector("#wide-count");
+const noBallCountEl = document.querySelector("#no-ball-count");
+const byeCountEl = document.querySelector("#bye-count");
+const legByeCountEl = document.querySelector("#leg-bye-count");
+const tossWinnerEl = document.querySelector("#toss-winner");
+const battingTeamNameEl = document.querySelector("#batting-team-name");
 
 /*----------------------------- buttons ------------------------------------------*/
 
@@ -17,6 +26,7 @@ const btnNoBall = document.querySelector("#btn-no-ball");
 const btnBye = document.querySelector("#btn-bye");
 const btnLegBye = document.querySelector("#btn-leg-bye");
 const btnUndo = document.querySelector("#btn-undo");
+const btnSubmitInModal = document.querySelector("#btn-submit");
 
 /*----------------------------- myModal ------------------------------------------*/
 
@@ -25,8 +35,12 @@ const inputField = document.querySelector("#inputField");
 
 /*------------------------------------------------- main ------------------------------------------------------*/
 
-btnOneRun.addEventListener("click", function () {
+let totalBallsBowled = 0;
+let currentRunRate = 0.0;
+
+btnZeroRuns.addEventListener("click", function () {
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnOneRun.addEventListener("click", function () {
@@ -35,6 +49,7 @@ btnOneRun.addEventListener("click", function () {
   runsEl.innerText = runsAfter;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnTwoRuns.addEventListener("click", function () {
@@ -43,6 +58,7 @@ btnTwoRuns.addEventListener("click", function () {
   runsEl.innerText = runsAfter;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnThreeRuns.addEventListener("click", function () {
@@ -51,6 +67,7 @@ btnThreeRuns.addEventListener("click", function () {
   runsEl.innerText = runsAfter;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnFourRuns.addEventListener("click", function () {
@@ -59,6 +76,7 @@ btnFourRuns.addEventListener("click", function () {
   runsEl.innerText = runsAfter;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnSixRuns.addEventListener("click", function () {
@@ -67,30 +85,23 @@ btnSixRuns.addEventListener("click", function () {
   runsEl.innerText = runsAfter;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
 btnCustom.addEventListener("click", function () {
+  openCustomModal();
+  progressOver();
+});
+
+btnSubmitInModal.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
-  modal.style.display = "block";
-  inputField.value = "";
+  const userInput = parseInt(inputField.value);
+  let runsAfter = runsBefore + userInput;
+  runsEl.innerText = runsAfter;
 
-  // Handle the submit button click
-  document.querySelector("#btn-submit").addEventListener("click", function () {
-    const userInput = inputField.value;
-    let runsAfter = runsBefore + parseInt(userInput);
-    runsEl.innerText = runsAfter;
+  updateCurrentRunRate();
 
-    progressOver();
-
-    // Hide the modal
-    modal.style.display = "none";
-  });
-
-  // Handle the close button click
-  document.querySelector(".close").addEventListener("click", function () {
-    // Hide the modal
-    modal.style.display = "none";
-  });
+  modal.style.display = "none";
 });
 
 btnWide.addEventListener("click", function () {
@@ -98,7 +109,32 @@ btnWide.addEventListener("click", function () {
   let runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
 
-  addExtras("WD");
+  countExtras("wide");
+  updateCurrentRunRate();
+});
+
+btnNoBall.addEventListener("click", function () {
+  let runsBefore = parseInt(runsEl.textContent);
+  let runsAfter = runsBefore + 1;
+  runsEl.innerText = runsAfter;
+
+  countExtras("no-ball");
+  openCustomModal();
+  updateCurrentRunRate();
+});
+
+btnBye.addEventListener("click", function () {
+  countExtras("bye");
+  openCustomModal();
+  progressOver();
+  updateCurrentRunRate();
+});
+
+btnLegBye.addEventListener("click", function () {
+  countExtras("leg-bye");
+  openCustomModal();
+  progressOver();
+  updateCurrentRunRate();
 });
 
 btnWicket.addEventListener("click", function () {
@@ -106,7 +142,58 @@ btnWicket.addEventListener("click", function () {
   wicketsEl.innerText = wicketsBefore + 1;
 
   progressOver();
+  updateCurrentRunRate();
 });
 
-function progressOver() {}
-function addExtras(ball) {}
+/* ------------------------------------ Functions ---------------------------------------------*/
+
+function progressOver() {
+  totalBallsBowled += 1;
+
+  let overCount = Math.floor(totalBallsBowled / 6);
+  let ballCount = totalBallsBowled % 6;
+
+  overEl.innerText = overCount;
+  ballEl.innerText = ballCount;
+}
+
+function updateCurrentRunRate() {
+  let totalRuns = parseInt(runsEl.textContent);
+
+  if (totalBallsBowled === 0) {
+    return 0.0;
+  } else {
+    let oversDone = totalBallsBowled / 6;
+    currentRunRate = totalRuns / oversDone;
+  }
+
+  currentRunRateEl.innerText = currentRunRate.toFixed(2);
+}
+
+function countExtras(ball) {
+  let extrasTotal = parseInt(extrasTotalEl.textContent);
+  extrasTotalEl.innerText = extrasTotal + 1;
+
+  if (ball === "wide") {
+    let wideCount = parseInt(wideCountEl.textContent);
+    wideCountEl.innerText = wideCount + 1;
+  } else if (ball === "no-ball") {
+    let noBallCount = parseInt(noBallCountEl.textContent);
+    noBallCountEl.innerText = noBallCount + 1;
+  } else if (ball === "bye") {
+    let byeCount = parseInt(byeCountEl.textContent);
+    byeCountEl.innerText = byeCount + 1;
+  } else if (ball === "leg-bye") {
+    let legByeCount = parseInt(legByeCountEl.textContent);
+    legByeCountEl.innerText = legByeCount + 1;
+  }
+}
+
+function openCustomModal() {
+  modal.style.display = "block";
+  inputField.value = "";
+
+  document.querySelector(".close").addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+}
