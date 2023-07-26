@@ -20,7 +20,20 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+}
+
+@media (min-width: 539px) {
+  .bg {
+    background-image: url("/resources/cricket\ doodle.jpg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
 }
 
 /* --------------------------------------------- CONTAINER ----------------------------------------------*/
@@ -51,7 +64,7 @@ body {
 
 .team-name {
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 #vs {
@@ -61,7 +74,7 @@ body {
 
 .details {
   color: white;
-  font-size: 12px;
+  font-size: 0.9rem;
 }
 
 /* ------------------------------------- SCORECARD -------------------------------------------------*/
@@ -104,7 +117,7 @@ body {
 
 .bottom {
   font-weight: 400;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   color: whitesmoke;
 }
 
