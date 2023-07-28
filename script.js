@@ -35,8 +35,10 @@ const inputField = document.querySelector("#inputField");
 
 /*------------------------------------------------- main ------------------------------------------------------*/
 
+let totalRuns = 0;
 let totalBallsBowled = 0;
 let currentRunRate = 0.0;
+let wicketsFallen = 0;
 
 btnZeroRuns.addEventListener("click", function () {
   progressOver();
@@ -47,6 +49,7 @@ btnOneRun.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
+  totalRuns++;
 
   progressOver();
   updateCurrentRunRate();
@@ -56,6 +59,7 @@ btnTwoRuns.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 2;
   runsEl.innerText = runsAfter;
+  totalRuns += 2;
 
   progressOver();
   updateCurrentRunRate();
@@ -65,6 +69,7 @@ btnThreeRuns.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 3;
   runsEl.innerText = runsAfter;
+  totalRuns += 3;
 
   progressOver();
   updateCurrentRunRate();
@@ -74,6 +79,7 @@ btnFourRuns.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 4;
   runsEl.innerText = runsAfter;
+  totalRuns += 4;
 
   progressOver();
   updateCurrentRunRate();
@@ -83,6 +89,7 @@ btnSixRuns.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 6;
   runsEl.innerText = runsAfter;
+  totalRuns += 6;
 
   progressOver();
   updateCurrentRunRate();
@@ -98,6 +105,7 @@ btnSubmitInModal.addEventListener("click", function () {
   const userInput = parseInt(inputField.value);
   let runsAfter = runsBefore + userInput;
   runsEl.innerText = runsAfter;
+  totalRuns += userInput;
 
   updateCurrentRunRate();
 
@@ -108,6 +116,7 @@ btnWide.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
+  totalRuns++;
 
   countExtras("wide");
   updateCurrentRunRate();
@@ -117,6 +126,7 @@ btnNoBall.addEventListener("click", function () {
   let runsBefore = parseInt(runsEl.textContent);
   let runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
+  totalRuns++;
 
   countExtras("no-ball");
   openCustomModal();
@@ -140,6 +150,18 @@ btnLegBye.addEventListener("click", function () {
 btnWicket.addEventListener("click", function () {
   let wicketsBefore = parseInt(wicketsEl.textContent);
   wicketsEl.innerText = wicketsBefore + 1;
+  wicketsFallen++;
+
+  if (wicketsFallen === 10) {
+    setTimeout(function () {
+      alert("Innings Over!");
+      const userConfirmationToSwitch = confirm("Switch sides?");
+    }, 100);
+
+    if (userConfirmationToSwitch) {
+      switchSides();
+    }
+  }
 
   progressOver();
   updateCurrentRunRate();
@@ -197,3 +219,5 @@ function openCustomModal() {
     modal.style.display = "none";
   });
 }
+
+function switchSides() {}
