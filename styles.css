@@ -59,7 +59,7 @@ body {
   gap: 15px;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 7.5%;
 }
 
 .team-name {
@@ -77,12 +77,26 @@ body {
   font-size: 0.9rem;
 }
 
+@media (min-width: 539px) {
+  .team-name {
+    font-size: 2.3rem;
+  }
+
+  #vs {
+    font-size: 1.6rem;
+  }
+
+  .details {
+    font-size: 1rem;
+  }
+}
+
 /* ------------------------------------- SCORECARD -------------------------------------------------*/
 
 #scorecard {
   background-color: rgba(255, 255, 255, 0.3);
   width: 80%;
-  height: 85px;
+  height: 92px;
   margin: 0 auto;
   padding: 25px;
   border-radius: 28px;
@@ -126,6 +140,24 @@ body {
   font-weight: 600;
 }
 
+@media (min-width: 539px) {
+  #scorecard {
+    height: 100px;
+  }
+
+  .top {
+    font-size: 1.8rem;
+  }
+
+  .bottom {
+    font-size: 0.9rem;
+  }
+
+  #opponent-score {
+    font-size: 1.25rem;
+  }
+}
+
 /* ----------------------------- BOWLING DETAILS -------------------------------------------------- */
 
 #bowling-details-container {
@@ -166,6 +198,12 @@ body {
   width: 2.35em;
   height: 2.35em;
   font-weight: 600;
+}
+
+@media (min-width: 539px) {
+  #bowling-details-container {
+    height: 75px;
+  }
 }
 
 /* ------------------------ BUTTONS CONTAINER ---------------------------------------------- */
@@ -268,4 +306,10 @@ body {
 .close {
   float: right;
   cursor: pointer;
+}
+
+@media (min-width: 539px) {
+  .button {
+    font-size: 1.1rem;
+  }
 }
