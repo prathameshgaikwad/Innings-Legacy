@@ -38,7 +38,7 @@ body {
 
 /* --------------------------------------------- CONTAINER ----------------------------------------------*/
 
-#container {
+.container {
   width: 100%;
   max-width: 538px;
   min-width: 320px;
@@ -53,7 +53,7 @@ body {
 
 /* ----------------------------------- TEAM 1 vs TEAM 2 header --------------------------------------- */
 
-#match-name {
+.match-name {
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -67,7 +67,7 @@ body {
   font-size: 1.8rem;
 }
 
-#vs {
+.vs {
   color: whitesmoke;
   font-size: 1.3rem;
 }
@@ -82,7 +82,7 @@ body {
     font-size: 2.3rem;
   }
 
-  #vs {
+  .vs {
     font-size: 1.6rem;
   }
 
@@ -93,7 +93,7 @@ body {
 
 /* ------------------------------------- SCORECARD -------------------------------------------------*/
 
-#scorecard {
+.scorecard {
   background-color: rgba(255, 255, 255, 0.3);
   width: 80%;
   height: 92px;
@@ -116,11 +116,11 @@ body {
   margin-top: 4%;
 }
 
-#score-plus-overs {
+.score-plus-overs {
   text-align: left;
 }
 
-#team-plus-runrate {
+.team-plus-runrate {
   text-align: right;
 }
 
@@ -141,7 +141,7 @@ body {
 }
 
 @media (min-width: 539px) {
-  #scorecard {
+  .scorecard {
     height: 100px;
   }
 
@@ -160,7 +160,7 @@ body {
 
 /* ----------------------------- BOWLING DETAILS -------------------------------------------------- */
 
-#bowling-details-container {
+.bowling-details-container {
   width: 80%;
   height: 60px;
   margin: 0 auto;
@@ -175,7 +175,7 @@ body {
   justify-content: flex-start;
 }
 
-#bowling-details {
+.bowling-details {
   width: 100%;
   height: 100%;
   list-style-type: none;
@@ -185,7 +185,7 @@ body {
   align-items: center;
 }
 
-#bowling-details li {
+.bowling-details li {
   color: #666;
   border: 3px solid #fff;
   background-color: #eaebec;
@@ -201,14 +201,14 @@ body {
 }
 
 @media (min-width: 539px) {
-  #bowling-details-container {
+  .bowling-details-container {
     height: 75px;
   }
 }
 
 /* ------------------------ BUTTONS CONTAINER ---------------------------------------------- */
 
-#buttons-background {
+.buttons-background {
   width: 100%;
   height: auto;
   background-color: white;
@@ -217,7 +217,7 @@ body {
   display: flex;
 }
 
-#buttons-container {
+.buttons-container {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -283,13 +283,17 @@ body {
   font-weight: 600;
 }
 
+.modal-content p {
+  font-size: 1rem;
+}
+
 #inputField {
   font-size: 1rem;
   margin: 8% 0;
   padding: 2%;
 }
 
-#btn-submit {
+.btn-submit {
   padding: 3%;
   width: 90%;
   cursor: pointer;
@@ -299,13 +303,18 @@ body {
   font-weight: 600;
 }
 
-#btn-submit:hover {
+.button:hover {
   background-color: #242424;
 }
 
 .close {
   float: right;
   cursor: pointer;
+  scale: 1.5;
+}
+
+.close:hover {
+  color: #e92f2f;
 }
 
 @media (min-width: 539px) {

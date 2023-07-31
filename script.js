@@ -26,7 +26,7 @@ const btnNoBall = document.querySelector("#btn-no-ball");
 const btnBye = document.querySelector("#btn-bye");
 const btnLegBye = document.querySelector("#btn-leg-bye");
 const btnUndo = document.querySelector("#btn-undo");
-const btnSubmitInModal = document.querySelector("#btn-submit");
+const btnSubmitInModal = document.querySelector(".btn-submit");
 
 /*----------------------------- myModal ------------------------------------------*/
 

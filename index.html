@@ -20,31 +20,31 @@
     <link
       rel="icon"
       type="image/png"
-      href="resources/Innings Logo 32x32.png.png"
+      href="resources/Innings Logo 32x32.png"
       sizes="32x32"
     />
     <link
       rel="icon"
       type="image/png"
-      href="resources/Innings Logo 64x64.png.png"
+      href="resources/Innings Logo 64x64.png"
       sizes="64x64"
     />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="container">
-      <h1 id="match-name">
+    <main class="container">
+      <h1 class="match-name">
         <span id="team-name-1" class="team-name">CSK</span>
-        <span id="vs">vs</span>
+        <span class="vs">vs</span>
         <span id="team-name-2" class="team-name">RCB</span>
       </h1>
-      <div id="main-area">
+      <div>
         <p class="details" id="toss-details">
           <span id="toss-winner">CSK</span> won the toss and chose to
           <span id="toss-choice">bat</span>
         </p>
-        <div id="scorecard">
-          <div id="score-plus-overs">
+        <section class="scorecard">
+          <div class="score-plus-overs">
             <p id="score" class="top">
               <span id="runs">0</span>/<span id="wickets">0</span>
             </p>
@@ -54,11 +54,11 @@
               Overs
             </p>
           </div>
-          <div id="team-plus-runrate">
+          <div class="team-plus-runrate">
             <p id="batting-team-name" class="top">CSK</p>
             <p class="bottom">CRR: <span id="current-runrate">0.00</span></p>
           </div>
-        </div>
+        </section>
         <p class="details" id="extras-details">
           Extras:
           <span id="extras-total">0</span>
@@ -73,11 +73,11 @@
         <span id="opponent-team-name">RCB</span> -
         <span class="runs">0</span>/<span class="wickets">0</span>
       </p>
-      <div id="bowling-details-container">
-        <ul id="bowling-details"></ul>
+      <div class="bowling-details-container">
+        <ul class="bowling-details"></ul>
       </div>
-      <div id="buttons-background">
-        <div id="buttons-container">
+      <div class="buttons-background">
+        <div class="buttons-container">
           <button id="btn-0-runs" class="button">0</button>
           <button id="btn-1-runs" class="button">1</button>
           <button id="btn-2-runs" class="button">2</button>
@@ -94,14 +94,14 @@
           <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>
-              <p>Enter runs:</p>
-              <input type="number" id="inputField" />
-              <button id="btn-submit">SUBMIT</button>
+              <p>Enter Runs:</p>
+              <input type="number" id="inputField" placeholder="0" />
+              <button class="btn-submit">SUBMIT</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
     <div class="bg"></div>
   </body>
 </html>
