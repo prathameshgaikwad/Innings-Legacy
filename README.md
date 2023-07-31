@@ -1,4 +1,4 @@
-# Box-Cricket-Scoring-App
-A score keeping app for box-cricket
+# Innings
+A Box Cricket Scorekeeping App.
 
 View the app here: https://main--box-cricket-scoring.netlify.app/
