@@ -1,0 +1,28 @@
+{
+    "name": "Innings - A Box Cricket Score Keeping App",
+    "short_name": "Innings",
+    "icons": [
+        {
+            "src": "resources/Innings Logo 64x64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "resources/Innings Logo 128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "resources/Innings Logo 192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "resources/Innings Logo 256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "display": "standalone",
+    "start_url": "https://main--box-cricket-scoring.netlify.app/"
+}
