@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #e92f2f;
+  --primary-variant: #f86161;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -43,12 +48,16 @@ body {
   max-width: 538px;
   min-width: 320px;
   height: 100vh;
-  background: linear-gradient(150deg, #f86161, #e92f2f);
+  background: linear-gradient(
+    150deg,
+    var(--primary-variant),
+    var(--primary-color)
+  );
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
-  box-shadow: 0 0 40px 30px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 40px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* ----------------------------------- TEAM 1 vs TEAM 2 header --------------------------------------- */
@@ -73,13 +82,19 @@ body {
 }
 
 .details {
-  color: white;
+  color: whitesmoke;
   font-size: 0.9rem;
+}
+
+#toss-winner,
+#toss-choice {
+  font-weight: bold;
+  color: white;
 }
 
 @media (min-width: 539px) {
   .team-name {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
   }
 
   .vs {
@@ -87,14 +102,14 @@ body {
   }
 
   .details {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
 /* ------------------------------------- SCORECARD -------------------------------------------------*/
 
 .scorecard {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.28);
   width: 80%;
   height: 92px;
   margin: 0 auto;
@@ -146,11 +161,11 @@ body {
   }
 
   .top {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .bottom {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
   }
 
   #opponent-score {
@@ -246,7 +261,7 @@ body {
 }
 
 #btn-wicket {
-  background-color: #e92f2f;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -314,7 +329,7 @@ body {
 }
 
 .close:hover {
-  color: #e92f2f;
+  color: var(--primary-color);
 }
 
 @media (min-width: 539px) {
