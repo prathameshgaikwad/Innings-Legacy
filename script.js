@@ -13,12 +13,6 @@ const battingTeamNameEl = document.querySelector("#batting-team-name");
 
 /*----------------------------- buttons ------------------------------------------*/
 
-const btnZeroRuns = document.querySelector("#btn-0-runs");
-const btnOneRun = document.querySelector("#btn-1-runs");
-const btnTwoRuns = document.querySelector("#btn-2-runs");
-const btnThreeRuns = document.querySelector("#btn-3-runs");
-const btnFourRuns = document.querySelector("#btn-4-runs");
-const btnSixRuns = document.querySelector("#btn-6-runs");
 const btnWicket = document.querySelector("#btn-wicket");
 const btnCustom = document.querySelector("#btn-custom");
 const btnWide = document.querySelector("#btn-wide");
@@ -40,59 +34,17 @@ let totalBallsBowled = 0;
 let currentRunRate = 0.0;
 let wicketsFallen = 0;
 
-btnZeroRuns.addEventListener("click", function () {
-  progressOver();
-  updateCurrentRunRate();
-});
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btn-run")) {
+    const runsBefore = parseInt(runsEl.textContent);
+    const runsScored = parseInt(event.target.textContent);
+    const runsAfter = runsBefore + runsScored;
+    runsEl.innerText = runsAfter;
+    totalRuns += runsScored;
 
-btnOneRun.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 1;
-  runsEl.innerText = runsAfter;
-  totalRuns++;
-
-  progressOver();
-  updateCurrentRunRate();
-});
-
-btnTwoRuns.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 2;
-  runsEl.innerText = runsAfter;
-  totalRuns += 2;
-
-  progressOver();
-  updateCurrentRunRate();
-});
-
-btnThreeRuns.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 3;
-  runsEl.innerText = runsAfter;
-  totalRuns += 3;
-
-  progressOver();
-  updateCurrentRunRate();
-});
-
-btnFourRuns.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 4;
-  runsEl.innerText = runsAfter;
-  totalRuns += 4;
-
-  progressOver();
-  updateCurrentRunRate();
-});
-
-btnSixRuns.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 6;
-  runsEl.innerText = runsAfter;
-  totalRuns += 6;
-
-  progressOver();
-  updateCurrentRunRate();
+    progressOver();
+    updateCurrentRunRate();
+  }
 });
 
 btnCustom.addEventListener("click", function () {
