@@ -10,6 +10,10 @@ const byeCountEl = document.querySelector("#bye-count");
 const legByeCountEl = document.querySelector("#leg-bye-count");
 const tossWinnerEl = document.querySelector("#toss-winner");
 const battingTeamNameEl = document.querySelector("#batting-team-name");
+const opponentDetailsEl = document.querySelector("#opponent-details");
+const opponentTeamRuns = parseInt(
+  document.querySelector("#opponent-team-runs").innerText
+);
 
 /*----------------------------- buttons ------------------------------------------*/
 
@@ -33,6 +37,7 @@ let totalRuns = 0;
 let totalBallsBowled = 0;
 let currentRunRate = 0.0;
 let wicketsFallen = 0;
+let runsHistory = [];
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("btn-run")) {
@@ -41,6 +46,8 @@ document.addEventListener("click", function (event) {
     const runsAfter = runsBefore + runsScored;
     runsEl.innerText = runsAfter;
     totalRuns += runsScored;
+
+    runsHistory.push(runsScored);
 
     progressOver();
     updateCurrentRunRate();
@@ -123,10 +130,30 @@ btnWicket.addEventListener("click", function () {
   updateCurrentRunRate();
 });
 
+btnUndo.addEventListener("click", function () {
+  if (totalBallsBowled === 0) {
+    return;
+  }
+
+  if (runsHistory.length != 0) {
+    const lastRun = runsHistory.pop();
+    totalRuns -= lastRun;
+    runsEl.innerText = totalRuns;
+  }
+
+  progressOver("-");
+  updateCurrentRunRate();
+});
+
+if (opponentTeamRuns === 0) {
+  opponentDetailsEl.style.display = "none";
+}
+
 /* ------------------------------------ Functions ---------------------------------------------*/
 
-function progressOver() {
-  totalBallsBowled += 1;
+function progressOver(s) {
+  if (s === "-") totalBallsBowled--;
+  else totalBallsBowled++;
 
   let overCount = Math.floor(totalBallsBowled / 6);
   let ballCount = totalBallsBowled % 6;
@@ -136,11 +163,11 @@ function progressOver() {
 }
 
 function updateCurrentRunRate() {
-  if (totalBallsBowled === 0) {
-    return 0.0;
-  } else {
+  if (totalBallsBowled != 0) {
     let oversDone = totalBallsBowled / 6;
     currentRunRate = totalRuns / oversDone;
+  } else {
+    currentRunRate = 0.0;
   }
 
   currentRunRateEl.innerText = currentRunRate.toFixed(2);
