@@ -175,9 +175,8 @@ body {
 
 /* ----------------------------- BOWLING DETAILS -------------------------------------------------- */
 
-.bowling-details-container {
+.bowling-details {
   width: 80%;
-  height: 60px;
   margin: 0 auto;
   background: linear-gradient(
     90deg,
@@ -185,38 +184,10 @@ body {
     rgba(255, 255, 255, 0.33),
     rgba(255, 255, 255, 0)
   );
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-
-.bowling-details {
-  width: 100%;
-  height: 100%;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.bowling-details li {
-  color: #666;
-  border: 3px solid #fff;
-  background-color: #eaebec;
-  border-radius: 50%;
-  margin: 0 5px;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2.35em;
-  height: 2.35em;
-  font-weight: 600;
 }
 
 @media (min-width: 539px) {
-  .bowling-details-container {
+  .bowling-details {
     height: 75px;
   }
 }

@@ -36,7 +36,7 @@ let wicketsFallen = 0;
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("btn-run")) {
-    const runsBefore = parseInt(runsEl.textContent);
+    const runsBefore = totalRuns;
     const runsScored = parseInt(event.target.textContent);
     const runsAfter = runsBefore + runsScored;
     runsEl.innerText = runsAfter;
@@ -53,11 +53,15 @@ btnCustom.addEventListener("click", function () {
 });
 
 btnSubmitInModal.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
+  const runsBefore = totalRuns;
   const userInput = parseInt(inputField.value);
-  let runsAfter = runsBefore + userInput;
-  runsEl.innerText = runsAfter;
-  totalRuns += userInput;
+  if (!isNaN(userInput)) {
+    const runsAfter = runsBefore + userInput;
+    runsEl.innerText = runsAfter;
+    totalRuns += userInput;
+  } else {
+    runsEl.innerText = runsBefore;
+  }
 
   updateCurrentRunRate();
 
@@ -65,8 +69,8 @@ btnSubmitInModal.addEventListener("click", function () {
 });
 
 btnWide.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 1;
+  const runsBefore = totalRuns;
+  const runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
   totalRuns++;
 
@@ -75,8 +79,8 @@ btnWide.addEventListener("click", function () {
 });
 
 btnNoBall.addEventListener("click", function () {
-  let runsBefore = parseInt(runsEl.textContent);
-  let runsAfter = runsBefore + 1;
+  const runsBefore = totalRuns;
+  const runsAfter = runsBefore + 1;
   runsEl.innerText = runsAfter;
   totalRuns++;
 
@@ -132,8 +136,6 @@ function progressOver() {
 }
 
 function updateCurrentRunRate() {
-  let totalRuns = parseInt(runsEl.textContent);
-
   if (totalBallsBowled === 0) {
     return 0.0;
   } else {
