@@ -1,4 +1,4 @@
-# Innings
+# Innings (Legacy)
 
 A Box Cricket Scorekeeping App.
 
